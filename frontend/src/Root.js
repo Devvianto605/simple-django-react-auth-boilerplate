@@ -6,10 +6,10 @@ import { applyMiddleware, createStore } from "redux";
 import { routerMiddleware, ConnectedRouter } from "connected-react-router";
 
 import rootReducer from "./Reducer";
-import { setCurrentUser, setToken } from "./components/login/LoginActions"; // new imports
-import { isEmpty } from "./utils/Utils"; // new imports
+import { setCurrentUser, setToken } from "./components/login/LoginActions";
+import { isEmpty } from "./utils/Utils";
 
-export default ({ children, initialState = {} }) => {
+const Root = ({ children, initialState = {} }) => {
   const history = createBrowserHistory();
   const middleware = [thunk, routerMiddleware(history)];
 
@@ -19,7 +19,6 @@ export default ({ children, initialState = {} }) => {
     applyMiddleware(...middleware)
   );
 
-  // check localStorage
   if (!isEmpty(localStorage.getItem("token"))) {
     store.dispatch(setToken(localStorage.getItem("token")));
   }
@@ -34,3 +33,5 @@ export default ({ children, initialState = {} }) => {
     </Provider>
   );
 };
+
+export default Root;

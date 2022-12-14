@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'djoser', # remember about comma!
     # 
-    'apps.accounts'
+    'apps.accounts',
+    'apps.notes'
 ]
 
 #configure DRF

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";  // new import 
-import { connect } from "react-redux";          // new import 
-import PropTypes from "prop-types";             // new import 
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Container, Button, Row, Col, Form } from "react-bootstrap";
 
-import { login } from "./LoginActions.js";      // new import 
+import { login } from "./LoginActions.js";
 
 class Login extends Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class Login extends Component {
       username: this.state.username,
       password: this.state.password
     };
-    this.props.login(userData, "/dashboard"); // <--- login request
+    this.props.login(userData, "/dashboard");
   };
   render() {
     return (
@@ -34,11 +34,11 @@ class Login extends Component {
             <h1>Login</h1>
             <Form>
               <Form.Group controlId="usernameId">
-                <Form.Label>User name</Form.Label>
+                <Form.Label>Your Username</Form.Label>
                 <Form.Control
                   type="text"
                   name="username"
-                  placeholder="Enter user name"
+                  placeholder="Enter username"
                   value={this.state.username}
                   onChange={this.onChange}
                 />
@@ -54,6 +54,7 @@ class Login extends Component {
                   onChange={this.onChange}
                 />
               </Form.Group>
+
             </Form>
             <Button color="primary" onClick={this.onLoginClick}>
               Login
@@ -68,7 +69,7 @@ class Login extends Component {
   }
 }
 
-// connect action and store and component
+//export default Login;
 Login.propTypes = {
   login: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
